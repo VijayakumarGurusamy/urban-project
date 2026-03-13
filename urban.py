@@ -53,7 +53,7 @@ def uploaded_file(filename):
 
 @app.route('/')
 def home():
-    return "Flask API Running"
+    return "Flask API"
 # -------- create user --------
 @app.route('/users', methods=['POST'])
 def create_user():
