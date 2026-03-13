@@ -35,13 +35,10 @@ class User(db.Model):
             "created_at": self.created_at,
             "updated_at": self.updated_at
         }
-# --------------- Serve Uploaded Images ---------------
-@app.route('/uploads')
 
 @app.route('/')
 def home():
     return "Vijay your Flask API is running"
-# -------- create user --------
 @app.route('/users', methods=['POST'])
 def create_user():
 
@@ -64,9 +61,6 @@ def create_user():
         "user": new_user.dict()
     })
 
-
-# -------- get all users--------
-
 @app.route("/users", methods=["GET"])
 def get_users():
 
@@ -79,9 +73,6 @@ def get_users():
 
     return jsonify(result)
 
-
-# --------get userby id--------
-
 @app.route("/users/<int:id>", methods=["GET"])
 def get_user(id):
 
@@ -91,9 +82,6 @@ def get_user(id):
         return jsonify({"message": "User not found"})
 
     return jsonify(user.dict())
-
-
-# --------update user--------#
 
 @app.route("/users/<int:id>", methods=["PUT"])
 def update_user(id):
@@ -109,7 +97,6 @@ def update_user(id):
     user.mobile_number = data["mobile_number"]
     user.email = data["email"]
     user.password = data["password"]
-    user.profile_image_url = data["profile_image_url"]
     user.role = data["role"]
     user.status = data["status"]
 
@@ -119,7 +106,6 @@ def update_user(id):
         "message": "Updated",
         "user": user.dict()
     })
-#---------update userby sts----#
 @app.route("/users/<int:id>/status", methods=["GET","PUT"])
 def update_user_status(id):
 
@@ -142,7 +128,6 @@ def update_user_status(id):
         "message": "Status updated successfully",
         "user": user.dict()
     })
-#-------- deleteuser --------
 @app.route("/users/<int:id>/delete", methods=["PUT"])
 def delete_user(id):
 
@@ -163,5 +148,4 @@ if __name__ == "__main__":
 
     with app.app_context():
         db.create_all()
-
-    app.run(debug=True)
+  app.run(debug=True)
