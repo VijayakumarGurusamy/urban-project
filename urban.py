@@ -10,7 +10,7 @@ app.json.sort_keys = False
 db = SQLAlchemy(app)
 class User(db.Model):
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(50))
     mobile_number = db.Column(db.String(20))
     email = db.Column(db.String(30))
