@@ -4,7 +4,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql+pymysql://root:vinsys%40007@localhost/urban'
+app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql+pymysql://root:vinsys%40007@localhost:3306/urban'
 app.json.sort_keys = False
 
 db = SQLAlchemy(app)
