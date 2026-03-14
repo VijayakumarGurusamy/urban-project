@@ -73,15 +73,7 @@ def get_users():
 
     return jsonify(result)
 
-@app.route("/users/<int:id>", methods=["GET"])
-def get_user(id):
 
-    user = User.query.get(id)
-
-    if not user or user.delete_status:
-        return jsonify({"message": "User not found"})
-
-    return jsonify(user.dict())
 
 @app.route("/users/<int:id>", methods=["PUT"])
 def update_user(id):
